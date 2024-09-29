@@ -1,0 +1,44 @@
+*{
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+}
+.nav-container{
+   position: relative;
+}
+.toggle-btn{
+    position: absolute;
+    right: 10px;
+}
+.nav-underline:hover{
+    border-bottom: 5px solid black;
+    border-radius: 5px;
+    transition: 0.1s;
+  
+}
+.nav-underline:active{
+    color: blue;
+}
+.openpage{
+    display: block;
+}
+
+
+@media screen and (max-width:768px) {
+
+    .location-icon {
+    visibility: hidden;
+    position: absolute;
+}
+.nav1-container{ 
+    width: 80dvh;
+    margin-left: -105px;
+    place-items: center;
+    
+}
+.logo{
+    margin-left: -20px;
+}
+
+        
+}
