@@ -22,7 +22,9 @@
 .openpage{
     display: block;
 }
-
+.navlink{
+    transition: 2s;
+}
 
 @media screen and (max-width:768px) {
 

@@ -35,7 +35,7 @@ export default function Navbar() {
         )}
           </button>
       <nav className=" px-4 py-3 flex justify-center flex-col ml-32">
-      {/* md:flex-row justify-between items-center   flex-col md:flex-row */}
+     
         <div className="nav1-container ml-[-100px] mr-[-200px]  flex justify-between align-middle">
           
           <div  className="location-icon  flex items-center space-x-4 mb-4 md:mb-0">
@@ -82,7 +82,7 @@ export default function Navbar() {
     </div>
         </div>
       <div className={`px-4 py-2 mt-10 font-semibold w-full gap-12 bottom-10 bg-transparent`}>
-        <div  className={`container flex flex-col md:flex-row items-center space-y-5 md:space-y-0 md:space-x-20 mt-4 md:mt-0 ${isopen ? "block" : "hidden"} md:block`}>
+        <div  className={` navlink container flex flex-col md:flex-row items-center space-y-5 md:space-y-0 md:space-x-20 mt-4 md:mt-0 ${isopen ? "block" : "hidden"} md:block `}>
           <Link to="/" className="nav-underline">Home</Link>
           <Link to="/new-arrivals" className="nav-underline">New Arrivals</Link>
           <Link to="/trending" className="nav-underline">Trending</Link>
