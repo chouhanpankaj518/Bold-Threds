@@ -14,7 +14,7 @@ import Shirt from './Pages/upperwear/Shirt'
 import Hoodie from './Pages/upperwear/Hoodie'
 import Sweatshirt from './Pages/upperwear/Sweatshirt'
 
-  
+
 
 export default function App() {
   return (
@@ -40,6 +40,7 @@ export default function App() {
       </Routes>
       
       </BrowserRouter>
+     
     </div>
   )
 }

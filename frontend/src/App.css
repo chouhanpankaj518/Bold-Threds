@@ -22,15 +22,24 @@
 .openpage{
     display: block;
 }
-.navlink{
-    transition: 2s;
-}
+
+
 
 @media screen and (max-width:768px) {
 
+    .navlink{
+        margin-left: -120px;
+        letter-spacing: 1px;
+        margin-top: 40px;
+        font-size:large;
+    
+
+    }
     .location-icon {
-    visibility: hidden;
-    position: absolute;
+    position: fixed;
+   top: 120px;
+   left: 80px;
+    
 }
 .nav1-container{ 
     width: 80dvh;
@@ -44,3 +53,4 @@
 
         
 }
+

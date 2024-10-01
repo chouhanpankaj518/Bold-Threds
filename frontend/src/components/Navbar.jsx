@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import { IoLocationSharp } from "react-icons/io5";
 import { BsCart2 } from "react-icons/bs";
 import { BsPerson } from "react-icons/bs";
@@ -6,12 +6,20 @@ import { IoIosMenu } from 'react-icons/io';
 import { IoIosSearch } from "react-icons/io";
 import { IoIosClose } from 'react-icons/io';
 import IND from "../assets/ind.png";
+import logo from "../assets/bold thread.png"
 import {Link} from "react-router-dom"
-import { useRef } from 'react';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 
 export default function Navbar() {
-  let elements = useRef(null)
+
+  useEffect(() => {
+    AOS.init({
+      duration: 1200, 
+     
+    });
+  }, []);
 
   let [isopen , setisopen]=useState(false)
 
@@ -23,7 +31,7 @@ export default function Navbar() {
 
  
   return (
-    <div className="nav-container md-auto bg-white #003D36 shadow-md flex justify-between align-middle ">
+    <div className="nav-container md-auto bg-gray-200  flex justify-between align-middle ">
       <button
             className="toggle-btn block md:hidden text-gray-500  hover:text-gray-600 focus:outline-none focus:text-gray-600"
             onClick={addTogglebtn}
@@ -34,22 +42,22 @@ export default function Navbar() {
           <IoIosMenu className='text-3xl'/> 
         )}
           </button>
-      <nav className=" px-4 py-3 flex justify-center flex-col ml-32">
-     
+      <nav className="px-4   flex justify-center flex-col ml-32">
+
         <div className="nav1-container ml-[-100px] mr-[-200px]  flex justify-between align-middle">
           
-          <div  className="location-icon  flex items-center space-x-4 mb-4 md:mb-0">
-            <IoLocationSharp className=" text-black text-3xl" />
+          <div  className="location-icon  flex items-center justify-center space-x-4 mb-4 md:mb-0 ">
+            <IoLocationSharp className={` text-black text-3xl  xl:block ${isopen ? "block" : "hidden"}`} />
  
  <div className="flex justify-center bg-transparent">
   <img
     src={IND}
     alt="Indian Flag"
-    className="  w-10 h-8 mr-2 rounded-full size-10 bg-transparent"
+    className={`  w-10 h-8 mr-2 rounded-full size-10 bg-transparent xl:block ${isopen ? "block" : "hidden"}`}
   />
   <div className="relative">
-    <select
-      className=" appearance-none bg-transparent border border-transparent focus:outline-none w-8 h-full"
+     <select
+      className={` appearance-none bg-transparent text-gray-700 font-semibold py-2 pl-3 pr-8 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent xl:block ${isopen ? "block" : "hidden"} `}
       style={{
         backgroundImage: `url("data:image/svg+xml;charset=UTF-8,%3Csvg  xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='currentColor'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7' /%3E%3C/svg%3E")`,
         backgroundPosition: "right 0.5rem center",
@@ -57,16 +65,18 @@ export default function Navbar() {
         backgroundSize: "1rem",
       }}
     >
-      <option hidden></option>
-      <option>option1</option>
-    </select>
+         
+          <option value="english" className="py-1">English</option>
+          <option value="hindi" className="py-1">Hindi</option>
+        </select>
   </div>
 </div>
           </div>
 
 
-          <div className="text-xl font-bold mb-4 md:mb-0">
-            <h1 className='logo text-5xl'>Logo</h1>
+          <div className='size-32'>
+            {/* <h1 className='logo text-5xl'>Logo</h1> */}
+            <img src={logo} alt="logo" className='size-36'  />
           </div>
           <div className="flex items-center space-x-4">
       <div className="relative flex-grow">
@@ -77,13 +87,16 @@ export default function Navbar() {
         />
         <IoIosSearch className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={20} />
       </div>
-      <BsCart2 className="text-gray-600 cursor-pointer hover:text-blue-500" size={30} />
-      <BsPerson className="text-gray-600  cursor-pointer hover:text-blue-500" size={30} />
+      <BsCart2 className="text-gray-600 cursor-pointer hover:text-blue-500" size={35} />
+      <BsPerson className="text-gray-600  cursor-pointer hover:text-blue-500" size={35} />
     </div>
         </div>
-      <div className={`px-4 py-2 mt-10 font-semibold w-full gap-12 bottom-10 bg-transparent`}>
-        <div  className={` navlink container flex flex-col md:flex-row items-center space-y-5 md:space-y-0 md:space-x-20 mt-4 md:mt-0 ${isopen ? "block" : "hidden"} md:block `}>
-          <Link to="/" className="nav-underline">Home</Link>
+      {/* <div className={`navlink px-4 py-2 mt-10 font-semibold w-full gap-12 bottom-10 bg-transparent transition-all duration-500 ease-in-out`}>
+        <div className={`container flex flex-col md:flex-row items-center space-y-5 md:space-y-0 md:space-x-20 mt-4 md:mt-0 ${isopen ? "block " : "hidden"} md:block `}> */}
+          <div  className={`navlink  font-semibold w-full bg-transparent transition-all duration-500 ease-in-out   xl:pb-10`}
+            style={{ maxHeight: isopen ? "1000px" : "0", overflow: "hidden" }} >
+          <div data-aos="flip-left" className="container flex flex-col md:flex-row items-center space-y-5 md:space-y-0 md:space-x-20">
+          <Link  to="/" className="nav-underline ">Home</Link>
           <Link to="/new-arrivals" className="nav-underline">New Arrivals</Link>
           <Link to="/trending" className="nav-underline">Trending</Link>
           <Link to="/customized" className="nav-underline">Customized</Link>

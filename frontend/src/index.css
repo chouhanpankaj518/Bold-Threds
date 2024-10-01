@@ -4,10 +4,12 @@
 @tailwind utilities;
 
 body {
-    background-color: #C7FFF8;
+    background-color: #e3e9e8;
     font-family: "Roboto", sans-serif;
   font-weight: 100;
   font-style: normal;
-  }
+  user-select: none;
+  } 
 
+ 
   
