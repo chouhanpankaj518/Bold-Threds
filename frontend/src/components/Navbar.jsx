@@ -31,7 +31,7 @@ export default function Navbar() {
 
  
   return (
-    <div className="nav-container md-auto bg-gray-200  flex justify-between align-middle ">
+    <div className="nav-container md-auto bg-gray-200  flex justify-center align-middle ">
       <button
             className="toggle-btn block md:hidden text-gray-500  hover:text-gray-600 focus:outline-none focus:text-gray-600"
             onClick={addTogglebtn}
@@ -42,7 +42,7 @@ export default function Navbar() {
           <IoIosMenu className='text-3xl'/> 
         )}
           </button>
-      <nav className="px-4   flex justify-center flex-col ml-32">
+      <nav className="px-4   flex justify-between flex-col ">
 
         <div className="nav1-container ml-[-100px] mr-[-200px]  flex justify-between align-middle">
           
@@ -95,7 +95,7 @@ export default function Navbar() {
         <div className={`container flex flex-col md:flex-row items-center space-y-5 md:space-y-0 md:space-x-20 mt-4 md:mt-0 ${isopen ? "block " : "hidden"} md:block `}> */}
           <div  className={`navlink  font-semibold w-full bg-transparent transition-all duration-500 ease-in-out   xl:pb-10`}
             style={{ maxHeight: isopen ? "1000px" : "0", overflow: "hidden" }} >
-          <div data-aos="flip-left" className="container flex flex-col md:flex-row items-center space-y-5 md:space-y-0 md:space-x-20">
+          <div data-aos="flip-left" className="container flex flex-col md:flex-row items-center space-y-5 md:space-y-0 md:space-x-20  text-1xl">
           <Link  to="/" className="nav-underline ">Home</Link>
           <Link to="/new-arrivals" className="nav-underline">New Arrivals</Link>
           <Link to="/trending" className="nav-underline">Trending</Link>

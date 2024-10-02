@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useEffect,useState } from 'react';
 import { Navigation, Pagination, Scrollbar, A11y, EffectCoverflow, Autoplay } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
-
+import axios from 'axios'
 // Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/navigation';
@@ -10,8 +10,28 @@ import 'swiper/css/scrollbar';
 import 'swiper/css/effect-coverflow';
 
 export default function Home() {
+  const [products, setProducts] = useState([])
+  const [open, setOpen] = useState(6)
+  const [productfilter , setproductsfilter] = useState([])
+
+
+  useEffect(()=>{
+    async function fetchData() {
+      const response = await axios.get('https://fakestoreapi.com/products');
+      console.log(response.data)
+      setProducts(response.data)
+    }
+    fetchData()
+  },[])
+
+  useEffect(()=>{
+     const filterdata = products.filter(item=>item.id<=open)
+     setproductsfilter(filterdata)
+  },[open,products])
+
+
   return (
-    <div className="swiper-container">
+    <div className="swiper-container pb-10">
       <Swiper
         modules={[Navigation, Pagination, Scrollbar, A11y, EffectCoverflow, Autoplay]} 
         spaceBetween={50}
@@ -59,6 +79,60 @@ export default function Home() {
           <img src="https://images.unsplash.com/photo-1485218126466-34e6392ec754?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8dCUyMHNoaXJ0fGVufDB8fDB8fHww" alt="Slide 8" className="w-full h-full object-cover rounded-lg" />
         </SwiperSlide>
       </Swiper>
+      <br/>
+      <h1 className='font-semibold text-4xl text-center mt-5'>Our New Arrival</h1>
+     <div className='flex justify-center align-evenly gap-28 w-full bg-gray-200  p-5 flex-wrap mt-5 '>
+     {
+        productfilter.map((product,index)=>(
+        <div key={index} className='w-72 rounded-md overflow-hidden h-96 bg-white max-h-fit pb-10'> 
+          <img src="https://media.istockphoto.com/id/991893524/photo/stylish-young-male-and-female-models-in-colorful-hoodies-sitting-on-chairs-on-white.webp?a=1&b=1&s=612x612&w=0&k=20&c=HlsYbtPQRka-6b0XlZYDpmFPZPtDGuFi-uNzTmL4bbA=" alt="" className='w-full h-52  '/>
+         <div className='flex justify-around align-middle mt-3'>
+         <h2>{product.category}</h2>
+         <h2 className='border-5 border-black'>{product.price}</h2>
+         </div>
+          <p className='text-xs ml-3 mt-2 '>{product.title}</p>
+          <button className='text-white ml-3 text-xs rounded-md p-2 mt-2 bg-black'>Order Now</button>
+          </div>
+        ))
+      }
+     </div>
+      <button onClick={()=>setOpen(open+3)} className='border-2 border-black  mt-2 ml-96 xl:ml-[167vh] rounded-[100px] font-semibold p-1 px-5 '>View More</button>
+      <h1 className='font-semibold text-4xl text-center mt-5'>Our New Arrival</h1>
+      <div className='flex justify-center align-evenly gap-28 w-full bg-gray-200  p-5 flex-wrap mt-5 '>
+     {
+        productfilter.map((product,index)=>(
+        <div key={index} className='w-72 rounded-md overflow-hidden h-96 bg-white max-h-fit pb-10'> 
+          <img src="https://media.istockphoto.com/id/1294576092/photo/hipster-indian-man.webp?a=1&b=1&s=612x612&w=0&k=20&c=7uaS2oNYThqfXI09AFRyMnMULd3KtIbopLFJum0uWaw=" alt="" className='w-full h-52  '/>
+         <div className='flex justify-around align-middle mt-3'>
+         <h2>{product.category}</h2>
+         <h2 className='border-5 border-black'>{product.price}</h2>
+         </div>
+          <p className='text-xs ml-3 mt-2 '>{product.title}</p>
+          <button className='text-white ml-3 text-xs rounded-md p-2 mt-2 bg-black'>Order Now</button>
+          </div>
+        ))
+      }
+     </div>
+     <button onClick={()=>setOpen(open+3)} className='border-2 border-black  mt-2 ml-96 xl:ml-[167vh] rounded-[100px] font-semibold p-1 px-5 '>View More</button>
+     <h1 className='font-semibold text-4xl text-center mt-5'>Create you now customize T shirt</h1>
+
+
+
+     <div className='flex justify-center align-evenly gap-28 w-full bg-gray-200  p-5 scroll-auto mt-5  '>
+     {
+        productfilter.map((product,index)=>(
+        <div key={index} className='w-72 rounded-md overflow-hidden h-96 bg-white max-h-fit pb-10'> 
+          <img src="https://media.istockphoto.com/id/991893524/photo/stylish-young-male-and-female-models-in-colorful-hoodies-sitting-on-chairs-on-white.webp?a=1&b=1&s=612x612&w=0&k=20&c=HlsYbtPQRka-6b0XlZYDpmFPZPtDGuFi-uNzTmL4bbA=" alt="" className='w-full h-52  '/>
+         <div className='flex justify-around align-middle mt-3'>
+         <h2>{product.category}</h2>
+         <h2 className='border-5 border-black'>{product.price}</h2>
+         </div>
+          <p className='text-xs ml-3 mt-2 '>{product.title}</p>
+          <button className='text-white ml-3 text-xs rounded-md p-2 mt-2 bg-black'>Order Now</button>
+          </div>
+        ))
+      }
+     </div>
     </div>
   );
 }
