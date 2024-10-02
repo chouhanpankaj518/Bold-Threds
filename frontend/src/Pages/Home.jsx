@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { Navigation, Pagination, Scrollbar, A11y, EffectCoverflow } from 'swiper/modules';
+import React from 'react';
+import { Navigation, Pagination, Scrollbar, A11y, EffectCoverflow, Autoplay } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 // Import Swiper styles
@@ -10,35 +10,15 @@ import 'swiper/css/scrollbar';
 import 'swiper/css/effect-coverflow';
 
 export default function Home() {
-  const [swiper, setSwiper] = useState(null);
-  const [activeIndex, setActiveIndex] = useState(0);
-  const [remainingTime, setRemainingTime] = useState(1000);
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setRemainingTime((prevTime) => {
-        if (prevTime === 1) {
-          if (swiper) {
-            swiper.slideNext();
-          }
-          return 1000;
-        }
-        return prevTime - 1;
-      });
-    }, 1000);
-
-    return () => clearInterval(timer);
-  }, [swiper]);
-
   return (
     <div className="swiper-container">
       <Swiper
-        modules={[Navigation, Pagination, Scrollbar, A11y, EffectCoverflow]}
+        modules={[Navigation, Pagination, Scrollbar, A11y, EffectCoverflow, Autoplay]} 
         spaceBetween={50}
         slidesPerView={3}
         navigation
-        pagination={{ clickable: true }}
-        scrollbar={{ draggable: true }}
+        pagination={{ clickable: false }}
+        scrollbar={{ draggable: false }}
         effect="coverflow"
         coverflowEffect={{
           rotate: 50,
@@ -47,10 +27,11 @@ export default function Home() {
           modifier: 1,
           slideShadows: true,
         }}
-
         loop={true}
-        onSwiper={setSwiper}
-        onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
+        autoplay={{
+          delay: 2000, 
+          disableOnInteraction: false, 
+        }}
         className="w-full h-[300px]"
       >
         <SwiperSlide className="flex items-center justify-center">
@@ -78,12 +59,6 @@ export default function Home() {
           <img src="https://images.unsplash.com/photo-1485218126466-34e6392ec754?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8dCUyMHNoaXJ0fGVufDB8fDB8fHww" alt="Slide 8" className="w-full h-full object-cover rounded-lg" />
         </SwiperSlide>
       </Swiper>
-      <div className="mt-4 text-center">
-        {/* Time until next slide: {Math.floor(remainingTime / 60)}:{(remainingTime % 60).toString().padStart(2, '0')} */}
-      </div>
-      <div className="mt-2 text-center">
-        Current slide: {activeIndex + 1}
-      </div>
     </div>
   );
 }
