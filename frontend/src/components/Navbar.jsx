@@ -31,7 +31,7 @@ export default function Navbar() {
 
  
   return (
-    <div className="nav-container md-auto bg-gray-200  flex justify-center align-middle ">
+    <div className="nav-container md-auto   text-xl  flex justify-center align-middle ">
       <button
             className="toggle-btn block md:hidden text-gray-500  hover:text-gray-600 focus:outline-none focus:text-gray-600"
             onClick={addTogglebtn}
@@ -42,14 +42,14 @@ export default function Navbar() {
           <IoIosMenu className='text-3xl'/> 
         )}
           </button>
-      <nav className="px-4   flex justify-between flex-col ">
+      <nav className="   flex justify-around flex-col ">
 
         <div className="nav1-container ml-[-100px] mr-[-200px]  flex justify-between align-middle">
           
           <div  className="location-icon  flex items-center justify-center space-x-4 mb-4 md:mb-0 ">
             <IoLocationSharp className={` text-black text-3xl  xl:block ${isopen ? "block" : "hidden"}`} />
  
- <div className="flex justify-center bg-transparent">
+ <div className="flex justify-center bg-transparent mx-auto">
   <img
     src={IND}
     alt="Indian Flag"
@@ -76,7 +76,7 @@ export default function Navbar() {
 
           <div className='size-32'>
             {/* <h1 className='logo text-5xl'>Logo</h1> */}
-            <img src={logo} alt="logo" className='size-36'  />
+            <img src={logo} alt="logo" className='logo size30 text-black'  />
           </div>
           <div className="flex items-center space-x-4">
       <div className="relative flex-grow">
@@ -93,9 +93,9 @@ export default function Navbar() {
         </div>
       {/* <div className={`navlink px-4 py-2 mt-10 font-semibold w-full gap-12 bottom-10 bg-transparent transition-all duration-500 ease-in-out`}>
         <div className={`container flex flex-col md:flex-row items-center space-y-5 md:space-y-0 md:space-x-20 mt-4 md:mt-0 ${isopen ? "block " : "hidden"} md:block `}> */}
-          <div  className={`navlink  font-semibold w-full bg-transparent transition-all duration-500 ease-in-out   xl:pb-10`}
+          <div  className={`navlink   w-full bg-transparent transition-all duration-500 ease-in-out   xl:pb-10`}
             style={{ maxHeight: isopen ? "1000px" : "0", overflow: "hidden" }} >
-          <div data-aos="flip-left" className="container flex flex-col md:flex-row items-center space-y-5 md:space-y-0 md:space-x-20  text-1xl">
+          <div data-aos="flip-left" className="container flex flex-col md:flex-row items-center space-y-5 md:space-y-0 md:space-x-20  text-1xl xl:w-full w-96 mx-aoto">
           <Link  to="/" className="nav-underline ">Home</Link>
           <Link to="/new-arrivals" className="nav-underline">New Arrivals</Link>
           <Link to="/trending" className="nav-underline">Trending</Link>

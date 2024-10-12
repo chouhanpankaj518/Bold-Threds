@@ -2,27 +2,31 @@
     margin: 0%;
     padding: 0%;
     box-sizing: border-box;
+
+
+
 }
 .nav-container{
    position: relative;
+
 }
 .toggle-btn{
     position: absolute;
     right: 10px;
 }
-.nav-underline:hover{
-    border-bottom: 5px solid black;
-    border-radius: 5px;
-    transition: 0.1s;
-  
-}
+
 .nav-underline:active{
     color: blue;
 }
 .openpage{
     display: block;
 }
-
+.footerbox{
+    position:relative;
+    left:300px;
+    bottom: 300px;
+    text-align: center;
+}
 
 
 @media screen and (max-width:768px) {
@@ -32,6 +36,7 @@
         letter-spacing: 1px;
         margin-top: 40px;
         font-size:large;
+       
     
     
 
@@ -49,9 +54,22 @@
     
 }
 .logo{
+    margin-top: 10px;
     margin-left: -20px;
 }
+.container{
+    position: relative;
+}
+.footerbox{
+    position:absolute;
 
+    left:250px;
+   top:50px;
+    text-align: center;
+}
+.footerbox form{
+    flex-direction: column;
+}
         
 }
 

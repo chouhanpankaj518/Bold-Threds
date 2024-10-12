@@ -1,4 +1,5 @@
 import React from 'react'
+import { useState } from 'react'
 import Navbar from './components/Navbar'
 import { BrowserRouter , Routes , Route } from 'react-router-dom'
 import "./App.css"
@@ -13,19 +14,21 @@ import Tshirt from './Pages/upperwear/Tshirt'
 import Shirt from './Pages/upperwear/Shirt'
 import Hoodie from './Pages/upperwear/Hoodie'
 import Sweatshirt from './Pages/upperwear/Sweatshirt'
+import Footer from './components/Footer'
 
 
 
 export default function App() {
+  const [showcard , setshowcard] = useState([])
   return (
     <div>
       <BrowserRouter>
       <Navbar/>
       <Routes>
-        <Route path='/' element={<Home/>}/>
+        <Route path='/' element={<Home setshowcard={setshowcard}/>}/>
         <Route path='/new-arrivals' element={<NewArrivals/>}/>
         <Route path='/trending' element={<Trending/>}/>
-        <Route path="/customized" element={<Customized/>}/>
+        <Route path="/customized" element={<Customized  showcard={showcard}/>}/>
         <Route path='/bottom-wear' element={<Bottomwear/>}/>
         <Route path='/seasonals' element={<Seasonals/>}/>
 
@@ -38,7 +41,7 @@ export default function App() {
           
     
       </Routes>
-      
+      <Footer/>
       </BrowserRouter>
      
     </div>

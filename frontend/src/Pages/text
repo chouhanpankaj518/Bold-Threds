@@ -1,53 +1,37 @@
-import { useState, useRef } from 'react';
+
+
+
+
+import {useState} from 'react';
 import { TiShoppingCart } from "react-icons/ti";
 
-const Customized = ({ showcard }) => {
-  const [quantity, setQuantity] = useState(1);
-  const imageRef = useRef(null);
+const customized = ({ showcard }) => {
 
+
+  const [quantity, setQuantity] = useState(1);
   const handleQuantityChange = (e) => {
     setQuantity(Math.max(1, parseInt(e.target.value) || 1));
   };
-
-  const handleMouseMove = (e) => {
-    if (imageRef.current) {
-      const { left, top, width, height } = imageRef.current.getBoundingClientRect();
-      const x = (e.clientX - left) / width;
-      const y = (e.clientY - top) / height;
-      
-      const rotateX = (y - 0.5) * 90;
-      const rotateY = (x - 0.5) * 90;
-
-      imageRef.current.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-    }
-  };
-
-  const handleMouseLeave = () => {
-    if (imageRef.current) {
-      imageRef.current.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg)';
-    }
-  };
-
-  // ... existing code ...
+  console.log("first",showcard)
 
   return (
     <div className='py-10'>
-      {showcard.map((item, index) => (
-        <div key={index} className="container mx-auto px-4 py-8 bg-white">
-          <div className="flex flex-col md:flex-row">
-            {/* Product Image */}
-            <div className="md:w-1/2 mb-8 md:mb-0">
-              <img
-                ref={imageRef}
-                onMouseMove={handleMouseMove}
-                onMouseLeave={handleMouseLeave}
-                src={item.image}
-                alt="Product"
-                className="w-96 mx-auto bg-transparent h-96 rounded-lg shadow-lg transition-transform duration-200 ease-out"
-              />
-            </div>
-
-            <div className="md:w-1/2 md:pl-8">
+   {
+    showcard.map((item,index)=>(
+      <div key={index} className="container mx-auto px-4 py-8 bg-white">
+      <div className="flex flex-col md:flex-row">
+        {/* Product Image */}
+        <div className="md:w-1/2 mb-8 md:mb-0">
+          <img
+            onMouseMove={()=>alert("hii")}
+            src={item.image}
+            alt="Product"
+            className="w-96 mx-auto bg-transparent h-96 rounded-lg shadow-lg"
+          />
+        </div>
+  
+        {/* Product Details */}
+        <div className="md:w-1/2 md:pl-8">
           <h1 className="text-3xl font-bold mb-4">Stylish Leather Backpack</h1>
           <p className="text-gray-600 mb-4">
             High-quality leather backpack perfect for daily use or weekend getaways.
@@ -77,11 +61,12 @@ const Customized = ({ showcard }) => {
             Buy Now
           </button>
         </div>
-          </div>
-        </div>
-      ))}
+      </div>
     </div>
+    ))
+   }
+  </div>
   );
 };
 
-export default Customized;
+export default customized;
