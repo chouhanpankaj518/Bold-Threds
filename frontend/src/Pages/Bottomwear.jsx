@@ -56,6 +56,7 @@ const jeansData = [
    { id:18, name: 'Tapered Fit Gray Jeans', price: 58.99, 
      image: 'https://media.istockphoto.com/id/962293684/photo/jeans-on-a-background.jpg?s=612x612&w=0&k=20&c=h8BXvaFp8HQo3WpfzWZoyrbqlzTOY137Dy-zBUTS0u4=', 
      style: 'tapered', color: 'gray' },
+     
 ];
 
 export default function Bottomear() {

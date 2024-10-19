@@ -1,33 +1,29 @@
-import { useState, useRef } from 'react';
+import { useState } from 'react';
 import { TiShoppingCart } from "react-icons/ti";
 
 const Customized = ({ showcard }) => {
   const [quantity, setQuantity] = useState(1);
-  const imageRef = useRef(null);
+
 
   const handleQuantityChange = (e) => {
     setQuantity(Math.max(1, parseInt(e.target.value) || 1));
   };
-
-  const handleMouseMove = (e) => {
-    if (imageRef.current) {
-      const { left, top, width, height } = imageRef.current.getBoundingClientRect();
-      const x = (e.clientX - left) / width;
-      const y = (e.clientY - top) / height;
+  
+  let   productinfo = [
+    {
+      Manufacturer :"Awesome Fab Shopping Pvt Ltd , Awesome Fab Shopping Pvt Ahmedabad -382405" ,
+      Packer :"Awesome Fab Shopping Pvt Ltd",
+      Importer :"Awesomefab Shopping Private Limited A-101 ANZ OPP BALHANUHAM NR CHRUCH, Nr , COZY HOSTEL STREET, Ahmedabad ,Gujarat 382405 ", 
+      ItemWeight :"500g",
+      ItemDimesionsLxWxH :"30 x 25 x 3 Centimeters",
+      GenericName :"T-Shirt"
       
-      const rotateX = (y - 0.5) * 90;
-      const rotateY = (x - 0.5) * 90;
-
-      imageRef.current.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
     }
-  };
+  ]
 
-  const handleMouseLeave = () => {
-    if (imageRef.current) {
-      imageRef.current.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg)';
-    }
-  };
 
+
+ 
   // ... existing code ...
 
   return (
@@ -38,12 +34,10 @@ const Customized = ({ showcard }) => {
             {/* Product Image */}
             <div className="md:w-1/2 mb-8 md:mb-0">
               <img
-                ref={imageRef}
-                onMouseMove={handleMouseMove}
-                onMouseLeave={handleMouseLeave}
+               
                 src={item.image}
                 alt="Product"
-                className="w-96 mx-auto bg-transparent h-96 rounded-lg shadow-lg transition-transform duration-200 ease-out"
+                className="w-96 mx-auto bg-transparent h-96 rounded-lg shadow-lg transition-transform duration-200 ease-out hover:scale-105 transition-transform"
               />
             </div>
 
@@ -78,6 +72,7 @@ const Customized = ({ showcard }) => {
           </button>
         </div>
           </div>
+          <h1>Additional Information</h1>
         </div>
       ))}
     </div>

@@ -1,4 +1,4 @@
-*{
+/* *{
     margin: 0%;
     padding: 0%;
     box-sizing: border-box;
@@ -8,6 +8,8 @@
 }
 .nav-container{
    position: relative;
+   background-color: #ffffff;
+   box-shadow: 0px 0px 10px rgb(85, 85, 214);
 
 }
 .toggle-btn{
@@ -73,3 +75,150 @@
         
 }
 
+@media screen and (max-width:400px) {
+  .navbar{
+    margin-left: 100px;
+  }
+} */
+ 
+
+
+
+
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.nav-container {
+    position: relative;
+    background-color: #ffffff;
+    box-shadow: 0px 0px 10px rgb(85, 85, 214);
+}
+
+.toggle-btn {
+    position: absolute;
+    right: 10px;
+}
+
+.nav-underline:active {
+    color: blue;
+}
+
+.footerbox {
+    position: relative;
+    left: 300px;
+    bottom: 300px;
+    text-align: center;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav1-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-grow: 1;
+}
+
+.location-icon {
+    display: flex;
+    align-items: center;
+}
+
+.navlink {
+    display: flex;
+    flex-direction: column;
+}
+
+@media screen and (max-width: 768px) {
+    .searchfield{
+        width:330px;
+        margin: auto;
+    }
+    .searchfield button{
+       font-size: small;
+    }
+
+   
+    .navlink {
+        margin-left: 0;
+        letter-spacing: 1px;
+        margin-top: 40px;
+        font-size: large;
+    }
+
+    .location-icon {
+        position: absolute;
+        top: 100px;
+        left: 10px;
+    }
+
+    .nav1-container {
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+    }
+
+    .logo {
+        margin: -15px;
+    }
+
+    .container {
+        position: relative;
+        margin: 0 auto;
+    }
+
+    .footerbox {
+        position: absolute;
+        left: 100px;
+        right: 0;
+        top: 50px;
+        text-align: center;
+    }
+    .footerbox input{
+        width: 200px;
+        margin-left: 50px;
+    }
+    .footerbox button{
+        position: relative;
+        width: 200px;
+        left: 30px;
+    }
+
+    .footerbox form {
+        flex-direction: column;
+    }
+
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+        margin-left: 200px;
+    }
+
+    .nav1-container {
+        margin-left: 0;
+    }
+}
+
+@media screen and (max-width: 400px) {
+   
+
+    .location-icon {
+        top: 80px;
+        left: 10px;
+    }
+
+    .nav1-container {
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+    }
+}

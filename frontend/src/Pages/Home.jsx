@@ -3,21 +3,21 @@ import { Navigation, Pagination, Scrollbar, A11y, EffectCoverflow, Autoplay } fr
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { FcLike } from "react-icons/fc";
 import { useNavigate } from 'react-router-dom';
-import Tshirt from "../assets/T-Shirt1.webp"
+import Tshirt from "../assets/T shirt.png"
+import png from "../assets/npg tshirt.png"
 import axios from 'axios'
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 import 'swiper/css/effect-coverflow';
+import video from "../assets/AnimeV.webm"
 
 export default function Home({setshowcard}) {
   const navigate = useNavigate();
   const [products, setProducts] = useState([])
   const [open, setOpen] = useState(8)
   const [productfilter , setproductsfilter] = useState([])
-
-
 
 
 
@@ -45,8 +45,8 @@ export default function Home({setshowcard}) {
     <div className="swiper-container pb-10 w-screen">
       <Swiper
         modules={[Navigation, Pagination, Scrollbar, A11y, EffectCoverflow, Autoplay]} 
-        spaceBetween={50}
-        slidesPerView={3}
+        spaceBetween={5} // Decrease space between slides
+        slidesPerView={3} // Adjust the number of slides visible
         navigation
         pagination={false}
         scrollbar={false}
@@ -54,52 +54,79 @@ export default function Home({setshowcard}) {
         coverflowEffect={{
           rotate: 50,
           stretch: 0,
-          depth: 100,
+          depth: 50,
           modifier: 1,
           slideShadows: true,
         }}
         loop={true}
-        autoplay={{
-          delay: 2000, 
-          disableOnInteraction: false, 
-        }}
+        // autoplay={{
+        //   delay: 2000, 
+        //   disableOnInteraction: false, 
+        // }}
         className="w-full h-[300px] mt-20"
       >
         <SwiperSlide className="flex items-center justify-center">
-          <img src="https://media.istockphoto.com/id/1208088021/photo/black-sport-t-shirts-mock-up-front-and-back-view-isolated-on-white-background-with-clipping.jpg?s=612x612&w=0&k=20&c=cVhIkdeXfxOPBltQKDGYxdPoyZJAd33hlj871H2Yt34=" alt="Slide 1" className="w-full h-full object-cover rounded-lg" />
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRI7N6ap5l4358wXx4jlC9RgF3Z3Q_pAHRyYw&s" alt="Slide 1" className="w-full h-full object-cover rounded-lg" />
         </SwiperSlide>
         <SwiperSlide className="flex items-center justify-center">
-          <img src="https://media.istockphoto.com/id/1358422692/photo/dark-blue-3d-hq-rendered-t-shirt-with-detailed-and-texture-color.jpg?s=612x612&w=0&k=20&c=AWYhN8Kj26q-qXX0wtiOEJG218odk6ZUl1AIliHarZI=" alt="Slide 2" className="w-full h-full object-cover rounded-lg" />
+          <img src="https://www.creativefabrica.com/wp-content/uploads/2022/07/30/Anime-Lover-TShirt-Design-Bundle-Graphics-35158811-1-1-580x386.jpg" alt="Slide 2" className="w-full h-full object-cover rounded-lg" />
         </SwiperSlide>
         <SwiperSlide className="flex items-center justify-center">
-          <img src="https://media.istockphoto.com/id/1428684081/photo/t-shirts-isolated.jpg?s=612x612&w=0&k=20&c=oc2byQAOluCUlBpWw6Iz3pyEROcoO3yhfaG8ZPGS-sU=" alt="Slide 3" className="w-full h-full object-cover rounded-lg" />
+          <img src="https://www.creativefabrica.com/wp-content/uploads/2022/04/23/Anime-TShirt-Design-Bundle-Graphics-29517084-2-580x386.jpg" alt="Slide 3" className="w-full h-full object-cover rounded-lg" />
         </SwiperSlide>
         <SwiperSlide className="flex items-center justify-center">
-          <img src="https://media.istockphoto.com/id/1152150649/photo/t-shirt-on-white-background.jpg?s=612x612&w=0&k=20&c=Cdsx6JeJeKp6WJWH76KNQAllW77ZKcvArYr3yOcWGEQ=" alt="Slide 4" className="w-full h-full object-cover rounded-lg" />
+          <img src="https://i5.walmartimages.com/seo/If-It-Doesn-t-Have-To-Do-With-Anime-Video-Game-Or-Food-T-Shirt_5e8a05fd-a7dc-4552-8950-326b312c03f6.bce5854dd3a4088a94ce44b77ede0256.jpeg" alt="Slide 4" className="w-full h-full object-cover rounded-lg" />
         </SwiperSlide>
         <SwiperSlide className="flex items-center justify-center">
-          <img src="https://media.istockphoto.com/id/1309835771/photo/mens-short-sleeve-t-shirt-mockup-in-front-side-and-back-views-design-presentation-for-print.jpg?s=612x612&w=0&k=20&c=eGiFUN3WCGpFYkBcwF68u4e9wuwm_z8GLOYDwR9xAYQ=" alt="Slide 5" className="w-full h-full object-cover rounded-lg" />
+          <img src="https://m.media-amazon.com/images/I/A16YlCTQRlL._CLa%7C2140%2C2000%7C71QvkaS5vcL.png%7C0%2C0%2C2140%2C2000%2B0.0%2C0.0%2C2140.0%2C2000.0_AC_UY1000_.png" alt="Slide 5" className="w-full h-full object-cover rounded-lg" />
         </SwiperSlide>
         <SwiperSlide className="flex items-center justify-center">
-          <img src="https://images.unsplash.com/photo-1522706604291-210a56c3b376?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8dCUyMHNoaXJ0fGVufDB8fDB8fHww" alt="Slide 6" className="w-full h-full object-cover rounded-lg" />
+          <img src="https://m.media-amazon.com/images/I/A16YlCTQRlL._CLa%7C2140%2C2000%7C71QvkaS5vcL.png%7C0%2C0%2C2140%2C2000%2B0.0%2C0.0%2C2140.0%2C2000.0_AC_UY1000_.png" alt="Slide 6" className="w-full h-full object-cover rounded-lg" />
         </SwiperSlide>
         <SwiperSlide className="flex items-center justify-center">
-          <img src="https://plus.unsplash.com/premium_photo-1673356301514-2cad91907f74?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8dCUyMHNoaXJ0fGVufDB8fDB8fHww" alt="Slide 7" className="w-full h-full object-cover rounded-lg" />
+          <img src="https://m.media-amazon.com/images/I/A16YlCTQRlL._CLa%7C2140%2C2000%7C71QvkaS5vcL.png%7C0%2C0%2C2140%2C2000%2B0.0%2C0.0%2C2140.0%2C2000.0_AC_UY1000_.png" alt="Slide 7" className="w-full h-full object-cover rounded-lg" />
         </SwiperSlide>
         <SwiperSlide className="flex items-center justify-center">
-          <img src="https://images.unsplash.com/photo-1485218126466-34e6392ec754?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8dCUyMHNoaXJ0fGVufDB8fDB8fHww" alt="Slide 8" className="w-full h-full object-cover rounded-lg" />
+          <img src="https://m.media-amazon.com/images/I/A16YlCTQRlL._CLa%7C2140%2C2000%7C71QvkaS5vcL.png%7C0%2C0%2C2140%2C2000%2B0.0%2C0.0%2C2140.0%2C2000.0_AC_UY1000_.png" alt="Slide 8" className="w-full h-full object-cover rounded-lg" />
         </SwiperSlide>
       </Swiper>
       <br/>
+      
+      <div className='xl:h-[430px] sm:h-80 md:h-96 border-2 border-black rounded-sm flex justify-center  mt-20'>
+  {/* <div className='h-full w-full sm:w-12/12 md:w-10/12 lg:w-9/12 xl:w-11/12 px-5 sm:px-10 md:px-16 lg:px-20'> */}
+  <img src='https://customthouse.in/wp-content/uploads/2021/07/anime-cover-pic.jpg' className='h-full w-full'/>
+  {/* </div> */}
+</div>
+      
+      <div className='flex justify-center gap-5 px-5 mt-20 flex-wrap'  >
+  <div className='w-full sm:w-72 md:w-72 lg:w-96 xl:w-80 h-72 md:h-80 xl:h-96 border-2 border-black rounded-md flex align-center'>
+    <img src='https://cdn.dribbble.com/userupload/13221231/file/original-831eccb57952528ed4a5e74cf478c771.png?resize=400x300&vertical=center'className='h-96 w-96' />
+  </div>
+  <div className='w-full sm:w-72 md:w-72 lg:w-96 xl:w-80 h-72 md:h-80 xl:h-96 border-2 border-black rounded-md' >
+    <img src="https://m.media-amazon.com/images/I/51nap1M6mNL._AC_UY1000_.jpg" className='h-full w-full'/>
+  </div>
+  <div className='w-full sm:w-72 md:w-72 lg:w-96 xl:w-80 h-72 md:h-80 xl:h-96 border-2 border-black rounded-md ' >
+    <img src='https://neckermanndirect.eu/317496-medium_default/winter-mens-down-jacket-quality-thermal-thick-coat-snow-red-black-parka-male-warm-outwear-fashion-white-duck-down-men-jackets.jpg'/>
+  </div>
+  <div className='w-full sm:w-72 md:w-72 lg:w-96 xl:w-80 h-72 md:h-80 xl:h-96 border-2 border-black rounded-md ' >
+    <img src='https://static.nextdirect.com/resource/blob/333376/c27808739c95f1c696be1ea4a74de7fb/autumn-essentials-data.jpg' className='h-full w-full'/>
+  </div>
+</div>
+
+      <br/>
+
+
       <h1 className='font-semibold text-4xl text-center mt-5'>Latest Collection</h1>
      <div className='flex  align-center gap-3 w-full p-5 flex-wrap mt-5 xl:ml-20 ml-10'>
      {
         productfilter.map((product,index)=>(
-        <div key={index} className='relative xl:w-80 w-60 overflow-hidden h-96 bg-white max-h-fit pb-10'> 
+        <div key={index}  className='relative xl:w-80 w-60 overflow-hidden h-96 bg-gray-50 hover:bg-gray-200  max-h-fit pb-14 xl:max-h-fit'> 
         <p className='absolute  left-4 rounded-sm bg-red-500 text-white text-xs py-1 top-4 px-3'>new</p>
         <p className='absolute right-4 top-4'><FcLike size={30}/></p>
-          {/* <img src="https://media.istockphoto.com/id/991893524/photo/stylish-young-male-and-female-models-in-colorful-hoodies-sitting-on-chairs-on-white.webp?a=1&b=1&s=612x612&w=0&k=20&c=HlsYbtPQRka-6b0XlZYDpmFPZPtDGuFi-uNzTmL4bbA=" alt="Image" className='w-full h-52  '/> */}
-          <img src={product.image} alt="Image" className='w-full h-52  '/>
+        <div className='w-52 text-center h-3/4 bg-transparent'>
+          <img src={png} alt="Image" className='w-full ml-10 h-full bg-center'/>
+          
+        </div>
          <div className='flex justify-around align-middle mt-3'>
          <h2>{product.category}</h2>
          <h2 className='border-2 border-black  px-3 rounded'>{product.price}</h2>
@@ -111,13 +138,20 @@ export default function Home({setshowcard}) {
       }
      </div>
       <button onClick={()=>navigate('new-arrivals')} className='border-2 border-black  mt-2 ml-96 xl:ml-[167vh] rounded-[100px] font-semibold p-1 px-5 '>View More</button>
+      
+      <div className='w-[100%] h-[500px]'>
+        <video src={video}   loop muted autoPlay className='w-[100%] h-[500px]  mt-10 '></video>
+      </div>
+      
+      
       <h1 className='font-semibold text-4xl text-center mt-5'>Our Arrivals</h1>
       <div className='flex  align-evenly gap-3 w-full p-5 flex-wrap mt-5 xl:ml-20 ml-10'>
      {
         productfilter.map((product,index)=>(
-        <div key={index} className='relative xl:w-80 w-60 overflow-hidden h-96 bg-white max-h-fit pb-10'>
+        <div  key={index} className='relative xl:w-80 w-60 overflow-hidden xl:h-96 bg-gray-100 hover:bg-gray-300 max-h-fit pb-10 '>
             <p className='absolute right-4 top-4'><FcLike size={30}/></p> 
-          <img src="https://media.istockphoto.com/id/1294576092/photo/hipster-indian-man.webp?a=1&b=1&s=612x612&w=0&k=20&c=7uaS2oNYThqfXI09AFRyMnMULd3KtIbopLFJum0uWaw=" alt="" className='w-full h-52  '/>
+          
+          <img src={png} alt="" className='w-full h-52  '/>
          <div className='flex justify-around align-middle mt-3'>
          <h2>{product.category}</h2>
          <h2 className='border-2 border-black  px-3 rounded'>{product.price}</h2>
